@@ -35,3 +35,7 @@ Add the following details to the endpoint
 - filename=***your image file name here***
 - width=***desired width***
 - width=***desired height***
+
+
+<img width="1200" alt="Screen Shot 1444-03-25 at 5 25 08 PM" src="https://user-images.githubusercontent.com/105711024/197219535-03cd9440-ce64-49cc-ba29-dee1de0205cc.png">
+
