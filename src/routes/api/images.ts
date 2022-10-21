@@ -1,7 +1,7 @@
 import express from 'express';
-import resizeImageController from '../../controllers/ImageController';
+import imageController from '../../controllers/ImageController';
 const images = express.Router();
 
-images.use('/', resizeImageController);
+images.use('/', imageController);
 
 export default images;

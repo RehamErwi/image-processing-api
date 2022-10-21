@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
 
-const resizeImageController: RequestHandler = (req, res, next) => {
+const imageController: RequestHandler = (req, res, next) => {
     const filename = req.query.filename;
     const width: number = parseInt(req.query.width as string);
     const height: number = parseInt(req.query.height as string);
@@ -36,4 +36,4 @@ const resizeImageController: RequestHandler = (req, res, next) => {
         res.status(404).send('image was not found');
     }
 };
-export default resizeImageController;
+export default imageController;
