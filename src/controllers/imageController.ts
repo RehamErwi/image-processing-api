@@ -1,9 +1,13 @@
-import { RequestHandler } from 'express';
+import { NextFunction, Request, RequestHandler, Response } from 'express';
 import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
 
-const imageController: RequestHandler = (req, res, next) => {
+const imageController: RequestHandler = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
     const filename = req.query.filename;
     const width: number = parseInt(req.query.width as string);
     const height: number = parseInt(req.query.height as string);
@@ -18,8 +22,9 @@ const imageController: RequestHandler = (req, res, next) => {
         '../../assets/images/thumb',
         `${filename}-w${width}-h${height}.jpg`
     );
-
-    if (fs.existsSync(inputFilePath)) {
+    if (fs.existsSync(outputFilePath)) {
+        res.sendFile(outputFilePath);
+    } else if (fs.existsSync(inputFilePath)) {
         sharp(inputFilePath)
             .resize(width, height)
             .toFile(outputFilePath)

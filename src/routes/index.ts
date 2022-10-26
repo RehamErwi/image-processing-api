@@ -9,7 +9,7 @@ routes.get('/', (req: Request, res: Response) => {
 
 routes.use('/images', images);
 
-routes.get('*', (req, res) => {
+routes.get('*', (req:Request, res:Response) => {
     res.status(404);
     res.send('404 Page not found');
 });
